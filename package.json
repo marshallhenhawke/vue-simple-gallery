@@ -1,42 +1,16 @@
 {
-  "name": "slider",
-  "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "name": "vue-simple-galler-slider",
+  "version": "0.0.1",
+  "description": "A simple gallery slider for Vue",
+  "author": "Marshall Henhawke",
+  "license": "MIT",
+  "main": "./dist/index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vue serve SimpleGallerySlider.vue",
+    "build": "bili --name index --plugin vue --vue.css false"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
+  "files": [
+    "dist/*"
   ]
 }
