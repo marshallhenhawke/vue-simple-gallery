@@ -5,10 +5,10 @@
         <div v-if="showUpperArrowBackground" class="blinder left-blinder"></div>
         <div v-if="showUpperArrowBackground" class="blinder right-blinder"></div>
         <div @click="upperSlideLeft" class="arrow left-arrow">
-          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('./img/arrow_left.svg')" />
+          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('img/arrow_left.svg')" />
         </div>
         <div @click="upperSlideRight" class="arrow right-arrow">
-          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('./img/arrow_right.svg')" />
+          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('img/arrow_right.svg')" />
         </div>
       </div>
       <div ref="slidingContainer" class="sliding-container">
@@ -20,10 +20,10 @@
         <div v-if="showLowerArrowBackground" class="blinder left-blinder"></div>
         <div v-if="showLowerArrowBackground" class="blinder right-blinder"></div>
         <div @click="lowerSlideLeft" class="arrow left-arrow">
-          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('./img/arrow_left.svg')" />
+          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('img/arrow_left.svg')" />
         </div>
         <div @click="lowerSlideRight" class="arrow right-arrow">
-          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('./img/arrow_right.svg')" />
+          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('img/arrow_right.svg')" />
         </div>
       </div>
       <div ref="slidingThumbContainer" class="sliding-thumb-container">
