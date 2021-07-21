@@ -25,7 +25,7 @@
     "build-library": "vue-cli-service build --target lib --name vue-simple-gallery-slider ./src/install.js",
     "lint": "vue-cli-service lint"
   },
-  "main": ".dist/vue-simple-gallery-slider.common.js",
+  "main": "./dist/vue-simple-gallery-slider.common.js",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
