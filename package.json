@@ -1,7 +1,7 @@
 {
   "name": "vue-simple-gallery-slider",
   "description": "A dummy simple gallery slider for vue",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": false,
   "author": {
     "name": "Marshall Henhawke",
