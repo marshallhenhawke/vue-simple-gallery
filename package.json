@@ -17,8 +17,7 @@
   ],
   "license": "MIT",
   "files": [
-    "dist/*",
-    "public/*"
+    "dist/*"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
