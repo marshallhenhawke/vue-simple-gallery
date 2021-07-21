@@ -6,10 +6,9 @@
         <div v-if="showUpperArrowBackground" class="blinder right-blinder"></div>
         <div @click="upperSlideLeft" class="arrow left-arrow">
           <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('../assets/img/arrow_left.png')" />
-          
         </div>
         <div @click="upperSlideRight" class="arrow right-arrow">
-          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('../assets/img/arrow_right.svg')" />
+          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('../assets/img/arrow_right.png')" />
         </div>
       </div>
       <div ref="slidingContainer" class="sliding-container">
@@ -21,10 +20,10 @@
         <div v-if="showLowerArrowBackground" class="blinder left-blinder"></div>
         <div v-if="showLowerArrowBackground" class="blinder right-blinder"></div>
         <div @click="lowerSlideLeft" class="arrow left-arrow">
-          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('../assets/img/arrow_left.svg')" />
+          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('../assets/img/arrow_left.png')" />
         </div>
         <div @click="lowerSlideRight" class="arrow right-arrow">
-          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('../assets/img/arrow_right.svg')" />
+          <img :style="'width:' + lowerArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('../assets/img/arrow_right.png')" />
         </div>
       </div>
       <div ref="slidingThumbContainer" class="sliding-thumb-container">
@@ -49,11 +48,11 @@ export default {
     height: Number,
     upperArrowSize: {
       type: String,
-      default: "3rem",
+      default: "1.5rem",
     },
     lowerArrowSize: {
       type: String,
-      default: "2rem",
+      default: "1rem",
     },
     thumbnailsToShow: {
       type: Number,
@@ -118,14 +117,22 @@ export default {
       this.clampToUpperRange();
     },
     lowerSlideLeft() {
-      this.counterThumb -= 1;
-      this.displayLower();
-      this.clampUpperToRange();
+      if (this.images.length <= this.thumbnailsToShow) {
+        return;
+      } else {
+        this.counterThumb -= 1;
+        this.displayLower();
+        this.clampUpperToRange();
+      }
     },
     lowerSlideRight() {
-      this.counterThumb += 1;
-      this.displayLower();
-      this.clampUpperToRange();
+      if (this.images.length <= this.thumbnailsToShow) {
+        return;
+      } else {
+        this.counterThumb += 1;
+        this.displayLower();
+        this.clampUpperToRange();
+      }
     },
     displayLower() {
       if (this.counterThumb < 0) this.counterThumb = 0;
@@ -135,15 +142,19 @@ export default {
       this.$refs.slidingThumbContainer.style.left = val + "px";
     },
     clampToUpperRange() {
-      var distance = 0;
-      if (this.counter > this.counterThumb + this.thumbnailsToShow - 1) {
-        distance = this.counter - (this.counterThumb + this.thumbnailsToShow - 1);
+      if (this.images.length <= this.thumbnailsToShow) {
+        return;
+      } else {
+        var distance = 0;
+        if (this.counter > this.counterThumb + this.thumbnailsToShow - 1) {
+          distance = this.counter - (this.counterThumb + this.thumbnailsToShow - 1);
+        }
+        if (this.counter < this.counterThumb) {
+          distance = this.counter - this.counterThumb;
+        }
+        this.counterThumb += distance;
+        this.displayLower();
       }
-      if (this.counter < this.counterThumb) {
-        distance = this.counter - this.counterThumb;
-      }
-      this.counterThumb += distance;
-      this.displayLower();
     },
     clampUpperToRange() {
       if (!(this.counter >= this.counterThumb && this.counter < this.counterThumb + this.thumbnailsToShow)) {
@@ -259,6 +270,10 @@ export default {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.705) 0%, rgba(0, 0, 0, 0) 100%);
   right: 0;
   top: 0;
+}
+.arrow-icon {
+  image-rendering: auto;
+  image-rendering: crisp-edges;
 }
 </style>
 
