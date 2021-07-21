@@ -5,17 +5,8 @@
         <div v-if="showUpperArrowBackground" class="blinder left-blinder"></div>
         <div v-if="showUpperArrowBackground" class="blinder right-blinder"></div>
         <div @click="upperSlideLeft" class="arrow left-arrow">
-          <svg
-            class="arrow-icon arrow-icon-left"
-            xmlns="http://www.w3.org/2000/svg"
-            :height="upperArrowSize"
-            :viewBox="'0 0 ' + upperArrowSize + ' ' + upperArrowSize"
-            :width="upperArrowSize"
-            fill="#FFFFFF"
-          >
-            <path d="M24 0v24H0V0h24z" fill="none" opacity=".87" />
-            <path d="M14 7l-5 5 5 5V7z" />
-          </svg>
+          <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-left" :src="require('../assets/img/arrow_left.png')" />
+          
         </div>
         <div @click="upperSlideRight" class="arrow right-arrow">
           <img :style="'width:' + upperArrowSize" class="img-fluid arrow-icon arrow-icon-right" :src="require('../assets/img/arrow_right.svg')" />
