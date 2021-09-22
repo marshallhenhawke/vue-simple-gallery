@@ -20,6 +20,7 @@
     "dist/*"
   ],
   "scripts": {
+    "publish-package": "npm run build-library && npm version patch -m \"build: release %s\" && npm publish --access public",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-library": "vue-cli-service build --target lib --name vue-simple-gallery-slider ./src/install.js",
