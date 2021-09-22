@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "SimpleGallerySlider",
   props: {
     images: Array,
     height: Number,
