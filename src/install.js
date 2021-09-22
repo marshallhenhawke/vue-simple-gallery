@@ -1,16 +1,25 @@
 import SimpleGallerySlider from "./components/SimpleGallerySlider.vue";
 
-const GallerySlider = {
- install(Vue) {
-  // Let's register our component globally
-  // https://vuejs.org/v2/guide/components-registration.html
-  Vue.component("vue-simple-gallery-slider", SimpleGallerySlider);
- }
-};
-
-// Automatic installation if Vue has been added to the global scope.
-if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(GallerySlider);
+function install(Vue) {
+	if (install.installed) return;
+	install.installed = true;
+	Vue.component("vue-simple-gallery-slider", SimpleGallerySlider);
 }
 
-export default GallerySlider;
+const plugin = {
+	install,
+};
+
+let GlobalVue = null;
+if (typeof window !== "undefined") {
+	GlobalVue = window.Vue;
+} else if (typeof global !== "undefined") {
+	GlobalVue = global.vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(plugin);
+}
+
+SimpleGallerySlider.install = install;
+
+export default SimpleGallerySlider;
